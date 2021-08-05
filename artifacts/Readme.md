@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/5j6yne2rtjcyq59n?svg=true)](https://ci.appveyor.com/project/ILiaBer/seleniumpractice)
