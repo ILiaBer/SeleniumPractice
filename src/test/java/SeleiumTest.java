@@ -69,8 +69,23 @@ public class SeleiumTest {
         driver.findElement(cssSelector(".button__text")).click();
         String text = driver.findElement(cssSelector(".input_invalid .checkbox__text")).getCssValue("color");
         assertEquals("rgba(255, 92, 92, 1)", text);
-
     }
-
-
+    @Test
+    void TestWrongTelCount() {
+        driver.findElement(cssSelector("[type='text']")).sendKeys("Кросовок Илья");
+        driver.findElement(cssSelector("[type='tel']")).sendKeys("+798005553535");
+        driver.findElement(cssSelector("[data-test-id='agreement']")).click();
+        driver.findElement(cssSelector(".button__text")).click();
+        String text = driver.findElement(cssSelector(".input_invalid[data-test-id=phone] .input__sub")).getText();
+        assertEquals("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.", text.trim());
+    }
+    @Test
+    void TestWrongNameForOnlyName() {
+        driver.findElement(cssSelector("[type='text']")).sendKeys("Илья");
+        driver.findElement(cssSelector("[type='tel']")).sendKeys("+78005553535");
+        driver.findElement(cssSelector("[data-test-id='agreement']")).click();
+        driver.findElement(cssSelector(".button__text")).click();
+        String text = driver.findElement(cssSelector(".input_invalid[data-test-id=name] .input__sub")).getText();
+        assertEquals("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.", text.trim());
+    }
 }
