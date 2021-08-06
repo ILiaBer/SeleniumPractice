@@ -33,7 +33,7 @@ public class SeleiumTest {
     @Test
     void CorrectTest() {
         driver.findElement(cssSelector("[type='text']")).sendKeys("Кросовок Илья");
-        driver.findElement(cssSelector("[type='tel']")).sendKeys("+780055+9=9]]/3535");
+        driver.findElement(cssSelector("[type='tel']")).sendKeys("+78005553535");
         driver.findElement(cssSelector("[data-test-id='agreement']")).click();
         driver.findElement(cssSelector(".button__text")).click();
         String text = driver.findElement(cssSelector("p")).getText();
